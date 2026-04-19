@@ -4,7 +4,7 @@
     <reapack name="ziepo_chords.lua" type="script" desc="ziepo_chords.lua - Display and follow the Chords of your song">
       <version name="1.0" author="Silvio Mechow" time="2026-04-19">
         <changelog><![CDATA[+ Initial Release]]></changelog>
-        <source main="main">https://github.com/ziepoobg/ReaScript/raw/fceaeb390c27a990b6b84bf5974cf524019303d6/ziepo_chords.lua</source>
+        <source main="main">https://raw.githubusercontent.com/ziepoobg/reascripts/refs/heads/main/scripts/ziepo_chords.lua?token=GHSAT0AAAAAADYHWM6ZN3TCC5YLEBNQMHXI2PEDXPQ</source>
       </version>
     </reapack>
   </category>
