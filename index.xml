@@ -2,7 +2,7 @@
 <index version="1.0" name="Ziepo">
   <category name="live">
     <reapack name="ziepo_chords.lua" type="script" desc="ziepo_chords.lua - Create a Track, name it Chords (!important), insert an item and add some Take markers to it. Finally run the script to update">
-      <version name="1.0" author="Silvio Mechow" time="2026-04-19">
+      <version name="1.0" author="Ziepo" time="2026-04-19">
         <changelog><![CDATA[+ Initial Release]]></changelog>
         <source main="main">https://raw.githubusercontent.com/ziepoobg/reascripts/refs/heads/main/scripts/ziepo_chords.lua?token=GHSAT0AAAAAADYHWM6ZN3TCC5YLEBNQMHXI2PEDXPQ</source>
       </version>
