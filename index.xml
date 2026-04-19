@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1.0" name="Silvio Mechow">
+<index version="1.0" name="Ziepo">
   <category name="live">
     <reapack name="ziepo_chords.lua" type="script" desc="ziepo_chords.lua - Create a Track, name it Chords (!important), insert an item and add some Take markers to it. Finally run the script to update">
       <version name="1.0" author="Silvio Mechow" time="2026-04-19">
