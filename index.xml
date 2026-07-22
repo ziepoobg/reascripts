@@ -1,16 +1,10 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <index version="1.0" name="Ziepo">
   <category name="live">
-    <reapack
-      name="ziepo_chords.lua"
-      type="script"
-      desc="ziepo_chords.lua - Display Chords from the Track Chords"
-    >
+    <reapack name="ziepo_chords.lua" type="script" desc="ziepo_chords.lua - Display Chords from the Track Chords">
       <version name="1.0.1" author="Ziepo" time="2026-07-22">
         <changelog><![CDATA[+ Fixed region color bug]]></changelog>
-        <source
-          main="main"
-        >https://raw.githubusercontent.com/ziepoobg/reascripts/refs/heads/main/scripts/ziepo_chords.lua</source>
+        <source main="main">https://raw.githubusercontent.com/ziepoobg/reascripts/refs/heads/main/scripts/ziepo_chords.lua</source>
       </version>
     </reapack>
   </category>
