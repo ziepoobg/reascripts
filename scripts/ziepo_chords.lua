@@ -9,14 +9,19 @@
  * Version: 1.0.1
 --]]
 
-font_size  = 100
-font_name = "Arial"
-window_w = 640
-window_h = 270
-chords_track = nil
-chords = {}
-chordkeys = {}
-proj_guid_last = ""
+local font_size  = 100
+local font_name = "Arial"
+local window_w = 640
+local window_h = 270
+local chords_track = nil
+local chords = {}
+local chordkeys = {}
+local proj_guid_last = ""
+
+local r        = 255
+local g        = 255
+local b        = 255
+local a        = 255
 
 function INT2BGR(num)
   if num ~= nil and num >= 0 then
@@ -27,7 +32,7 @@ function INT2BGR(num)
   else
       r, g, b, a = 255, 255, 255, 255
   end
-  rgba(r, g, b, a)
+  RGBA(r, g, b, a)
 end
 
 function INT2RGB(color_int)
@@ -38,10 +43,10 @@ function INT2RGB(color_int)
   else
       r, g, b = 255, 255, 255
   end
-  rgba(r, g, b, 255)
+  RGBA(r, g, b, 255)
 end
 
-function rgba(r, g, b, a)
+function RGBA(r, g, b, a)
   if a ~= nil then gfx.a = a/255 else a = 255 end
   gfx.r = r/255
   gfx.g = g/255
@@ -63,7 +68,7 @@ function HexToRGB(value)
   gfx.b = B/255
 end
 
-function color(r,g,b)
+function Color(r,g,b)
   if r == nil then r = 0 end
   if g == nil then g = 0 end
   if b == nil then b = 0 end
@@ -73,18 +78,18 @@ function color(r,g,b)
   gfx.b = b/255
 end
 
-function debug(message)
+function Debug(message)
   reaper.ShowConsoleMsg(tostring(message) .. '\n')
 end
 
-function adjust_font_size(mouse_wheel_val)
+function Adjust_font_size(mouse_wheel_val)
   if mouse_wheel_val > 0 and font_size < 200 then font_size = font_size + 4 end
   if mouse_wheel_val < 0 and font_size > 60 then font_size = font_size - 4 end
   gfx.setfont(1, font_name, font_size, 'b');
   gfx.mouse_wheel = 0;
 end
 
-function get_nearest_chordkey(pos)
+function Get_nearest_chordkey(pos)
     local index = nil
     local key = nil
     for i, v in pairs(chordkeys) do
@@ -116,8 +121,6 @@ function ProjGuidChange()
 
   proj_guid_last = proj_guid
 
-  --if changed==true then reaper.ShowConsoleMsg(tostring(changed)) end
-
   return changed
 end
 
@@ -141,10 +144,7 @@ function DrawProgressBar() -- Idea from Heda's Notes Reader
   progress_percent = 0
   if chordkeys[cur_chordkey_index] ~=nil and chordkeys[cur_chordkey_index+1] ~= nil then progress_percent = (play_pos-chordkeys[cur_chordkey_index])/(chordkeys[cur_chordkey_index+1]-chordkeys[cur_chordkey_index]) end
   rect_h = 30
-  --color(252, 186, 3)
   INT2BGR(region_color)
-  --INT2RGB(region_color)
-  --gfx.rect( 0, 0, gfx.w*progress_percent, rect_h )
   gfx.rect(0, 0, gfx.w*progress_percent, rect_h )
   gfx.y = rect_h * 2
 end
@@ -238,7 +238,6 @@ function run()
 
   mwbg = reaper.GetThemeColor("col_main_bg2")
   INT2RGB(mwbg)
-  --color(22,22,22)
   gfx.rect( 0, 0, gfx.w, gfx.h )
 
   -- PLAY STATE
@@ -247,7 +246,7 @@ function run()
   else play_pos = reaper.GetPlayPosition2()
   end
 
-  cur_chordkey_index,cur_chordkey = get_nearest_chordkey(play_pos)
+  cur_chordkey_index,cur_chordkey = Get_nearest_chordkey(play_pos)
 
   line1_txt_previous  = '-'
   line1_txt_upcomming = '-'
@@ -278,26 +277,26 @@ function run()
 
   gfx.setfont(1, font_name, font_size, 'b')
   line1_w,line1_h = gfx.measurestr(line1_txt)
-  color(252, 186, 3)
+  Color(252, 186, 3)
   gfx.x = 0.5*(gfx.w-line1_w);
   gfx.y = 0.5*(gfx.h-font_size)-34;
   gfx.printf(line1_txt);
 
-  color(255, 255, 255)
+  Color(255, 255, 255)
   gfx.setfont(1, font_name, font_size-40, 'b')
   line1u_w,line1u_h = gfx.measurestr(line1_txt_upcomming)
   gfx.x = (0.5*gfx.w) + (0.5*line1_w) + 80
   gfx.y = 0.5*(gfx.h-font_size)
   gfx.printf(line1_txt_upcomming)
 
-  color(60, 60,60)
+  Color(60, 60,60)
   gfx.setfont(1, font_name, font_size-40, 'b')
   line1p_w,line1p_h = gfx.measurestr(line1_txt_previous)
   gfx.x = (0.5*gfx.w)-(0.5*line1_w)-line1p_w - 80
   gfx.y = 0.5*(gfx.h-font_size)
   gfx.printf(line1_txt_previous)
 
-  color(160,160,160)
+  Color(160,160,160)
   gfx.setfont(1, font_name, font_size-60, 'b')
   line2_w,line2_h = gfx.measurestr(line2_txt)
   gfx.x = 0.5*(gfx.w-line2_w)
@@ -312,7 +311,7 @@ function run()
     gfx.rect(0.5*(gfx.w-line3_w-20),gfx.y+line1_h-line2_h-10,line3_w+20,line3_h+8)
   end
 
-  color(255,255,255)
+  Color(255,255,255)
   gfx.x = 0.5*(gfx.w-line3_w)
   gfx.y = gfx.y + line1_h - line2_h - 6;
   gfx.printf(line3_txt)
