@@ -7,3 +7,5 @@ https://raw.githubusercontent.com/ziepoobg/reascripts/refs/heads/main/index.xml
 ### Usage
 Add a Track named "Chords" then add a midi or empty item to the track. 
 The script recognises "Text Events" (Midi) or Text markers as Chords.
+
+https://github.com/user-attachments/assets/e2d3f80d-4211-45cc-bac1-eead02a4edb6
